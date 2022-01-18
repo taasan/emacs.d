@@ -1,14 +1,22 @@
+;; GIT
 (require 'magit)
 
-(defvar prelude-dir (file-name-directory user-init-file)
+(defvar taasan-dir (file-name-directory user-init-file)
   "Root dir")
-(defvar prelude-vendor-dir (expand-file-name "vendor" prelude-dir)
-  "Vendor dir")
-(defvar prelude-darcula-dir (expand-file-name "emacs-darcula-theme" prelude-vendor-dir)
-  "Vendor dir")
+(add-to-list 'load-path taasan-dir)
 
-(add-to-list 'load-path prelude-darcula-dir)
+;; Add vendor/* to load-path
+(defvar taasan-vendor-dir (expand-file-name "vendor" taasan-dir)
+  "Vendor dir")
+(let ((default-directory taasan-vendor-dir))
+  (normal-top-level-add-subdirs-to-load-path))
+
+;; Theme
 (require 'darcula-theme)
+
+;; Keybindings
+(require 'taasan-mode)
+(taasan-mode t)
 
 ;; TODO: use custom.el
 (custom-set-variables
