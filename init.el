@@ -3,7 +3,11 @@
 
 (defvar taasan-dir (file-name-directory user-init-file)
   "Root dir")
-(add-to-list 'load-path taasan-dir)
+
+(defvar taasan-lisp-dir (expand-file-name "lisp" taasan-dir)
+  "Lisp dir")
+
+(add-to-list 'load-path taasan-lisp-dir)
 
 ;; Add vendor/* to load-path
 (defvar taasan-vendor-dir (expand-file-name "vendor" taasan-dir)
