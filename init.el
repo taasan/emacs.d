@@ -22,6 +22,9 @@
 (require 'taasan-mode)
 (taasan-mode t)
 
+(require 'editorconfig)
+(editorconfig-mode 1)
+
 ;; TODO: use custom.el
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
